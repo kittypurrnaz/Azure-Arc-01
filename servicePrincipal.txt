@@ -1,0 +1,2 @@
+$ServicePrincipalId=8fe141db-53ff-45b8-b542-263bb0eae268
+$ServicePrincipalClientSecret=ErF8Q~tTRTFXv1igzVNlNvaW9wANsZfC~V0IccwY

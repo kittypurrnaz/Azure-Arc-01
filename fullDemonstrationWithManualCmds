@@ -1,0 +1,311 @@
+                                                                             ┌──(root㉿kali)-[~]
+└─# hostname
+kali
+                                                                             
+┌──(root㉿kali)-[~]
+└─# cd          
+                                                                             
+┌──(root㉿kali)-[~]
+└─# cd desktop  
+cd: no such file or directory: desktop
+                                                                             
+┌──(root㉿kali)-[~]
+└─# ls
+install_linux_azcmagent.sh
+                                                                             
+┌──(root㉿kali)-[~]
+└─# cd /home  
+                                                                             
+┌──(root㉿kali)-[/home]
+└─# ls
+kali
+                                                                             
+┌──(root㉿kali)-[/home]
+└─# cd kali 
+                                                                             
+┌──(root㉿kali)-[/home/kali]
+└─# ls
+Desktop    Downloads  Pictures  Templates  install_linux_azcmagent.sh
+Documents  Music      Public    Videos
+                                                                             
+┌──(root㉿kali)-[/home/kali]
+└─# cd desktop
+cd: no such file or directory: desktop
+                                                                             
+┌──(root㉿kali)-[/home/kali]
+└─# cd Desktop
+                                                                             
+┌──(root㉿kali)-[/home/kali/Desktop]
+└─# ls
+OnboardingScript.sh
+                                                                             
+┌──(root㉿kali)-[/home/kali/Desktop]
+└─# sh OnboardingScript.sh
+--2023-10-29 19:30:46--  https://aka.ms/azcmagent
+Resolving aka.ms (aka.ms)... 23.40.37.147
+Connecting to aka.ms (aka.ms)|23.40.37.147|:443... connected.
+HTTP request sent, awaiting response... 301 Moved Permanently
+Location: https://gbl.his.arc.azure.com/installationScripts?api-version=1.0-preview&platform=linux [following]
+--2023-10-29 19:30:46--  https://gbl.his.arc.azure.com/installationScripts?api-version=1.0-preview&platform=linux
+Resolving gbl.his.arc.azure.com (gbl.his.arc.azure.com)... 23.98.104.12
+Connecting to gbl.his.arc.azure.com (gbl.his.arc.azure.com)|23.98.104.12|:443... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: unspecified [text/plain]
+Saving to: ‘/root/install_linux_azcmagent.sh’
+
+     0K .......... .......... .......                          3.91M=0.007s
+
+2023-10-29 19:30:46 (3.91 MB/s) - ‘/root/install_linux_azcmagent.sh’ saved [28343]
+Using 'curl' for downloads
+Total physical memory: 2014272 kB
+Platform type:  x86_64:Linux
+Retrieving distro info from /etc/os-release...
+/root/install_linux_azcmagent.sh: unsupported Linux distribution: Kali GNU/Linux:2023.3. For supported OSs, see https://learn.microsoft.com/en-us/azure/azure-arc/servers/prerequisites#supported-operating-systems
+sudo: azcmagent: command not found
+                                                                             
+┌──(root㉿kali)-[/home/kali/Desktop]
+└─# azcmagent
+azcmagent: command not found
+                                                                             
+┌──(root㉿kali)-[/home/kali/Desktop]
+└─# bash                              
+┌──(root㉿kali)-[/home/kali/Desktop]
+└─# chsh                                                                     
+Changing the login shell for root
+Enter the new value, or press ENTER for the default
+        Login Shell [/usr/bin/zsh]: 
+
+┌──(root㉿kali)-[/home/kali/Desktop]
+└─# azcmagent                                                                
+azcmagent: command not found
+
+┌──(root㉿kali)-[/home/kali/Desktop]
+└─# sh OnboardingScript.sh
+--2023-10-29 19:35:43--  https://aka.ms/azcmagent
+Resolving aka.ms (aka.ms)... 23.40.37.147
+Connecting to aka.ms (aka.ms)|23.40.37.147|:443... connected.
+HTTP request sent, awaiting response... 301 Moved Permanently
+Location: https://gbl.his.arc.azure.com/installationScripts?api-version=1.0-preview&platform=linux [following]
+--2023-10-29 19:35:43--  https://gbl.his.arc.azure.com/installationScripts?api-version=1.0-preview&platform=linux
+Resolving gbl.his.arc.azure.com (gbl.his.arc.azure.com)... 23.98.104.12
+Connecting to gbl.his.arc.azure.com (gbl.his.arc.azure.com)|23.98.104.12|:443... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: unspecified [text/plain]
+Saving to: ‘/root/install_linux_azcmagent.sh’
+
+     0K .......... .......... .......                          4.44M=0.006s
+
+2023-10-29 19:35:43 (4.44 MB/s) - ‘/root/install_linux_azcmagent.sh’ saved [28343]
+Using 'curl' for downloads
+Total physical memory: 2014272 kB
+Platform type:  x86_64:Linux
+Retrieving distro info from /etc/os-release...
+/root/install_linux_azcmagent.sh: unsupported Linux distribution: Kali GNU/Linux:2023.3. For supported OSs, see https://learn.microsoft.com/en-us/azure/azure-arc/servers/prerequisites#supported-operating-systems
+sudo: azcmagent: command not found
+
+┌──(root㉿kali)-[/home/kali/Desktop]
+└─# sudo -E apt update
+Hit:1 http://mirror.aktkn.sg/kali kali-rolling InRelease
+Reading package lists... Done
+Building dependency tree... Done
+Reading state information... Done
+948 packages can be upgraded. Run 'apt list --upgradable' to see them.
+
+┌──(root㉿kali)-[/home/kali/Desktop]
+└─# sudo -E apt install -y Curl
+Reading package lists... Done
+Building dependency tree... Done
+Reading state information... Done
+E: Unable to locate package Curl
+
+┌──(root㉿kali)-[/home/kali/Desktop]
+└─# sudo -E apt install -y curl                                              
+Reading package lists... Done
+Building dependency tree... Done
+Reading state information... Done
+The following additional packages will be installed:
+  gnutls-bin libcurl3-gnutls libcurl4 libgnutls-dane0 libgnutls30
+  libunistring5
+The following NEW packages will be installed:
+  libunistring5
+The following packages will be upgraded:
+  curl gnutls-bin libcurl3-gnutls libcurl4 libgnutls-dane0 libgnutls30
+6 upgraded, 1 newly installed, 0 to remove and 942 not upgraded.
+Need to get 4046 kB of archives.
+After this operation, 2068 kB of additional disk space will be used.
+Get:1 http://mirror.aktkn.sg/kali kali-rolling/main amd64 libunistring5 amd64 1.1-2 [421 kB]
+Get:2 http://http.kali.org/kali kali-rolling/main amd64 libgnutls-dane0 amd64 3.8.1-4+b1 [425 kB]
+Get:3 http://http.kali.org/kali kali-rolling/main amd64 libgnutls30 amd64 3.8.1-4+b1 [1418 kB]
+Get:4 http://mirror.aktkn.sg/kali kali-rolling/main amd64 curl amd64 8.3.0-3 [316 kB]
+Get:5 http://mirror.aktkn.sg/kali kali-rolling/main amd64 libcurl4 amd64 8.3.0-3 [406 kB]
+Get:6 http://http.kali.org/kali kali-rolling/main amd64 gnutls-bin amd64 3.8.1-4+b1 [660 kB]
+Get:7 http://mirror.aktkn.sg/kali kali-rolling/main amd64 libcurl3-gnutls amd64 8.3.0-3 [400 kB]
+Fetched 4046 kB in 4s (985 kB/s)        
+Selecting previously unselected package libunistring5:amd64.
+(Reading database ... 398459 files and directories currently installed.)
+Preparing to unpack .../libunistring5_1.1-2_amd64.deb ...
+Unpacking libunistring5:amd64 (1.1-2) ...
+Setting up libunistring5:amd64 (1.1-2) ...
+(Reading database ... 398465 files and directories currently installed.)
+Preparing to unpack .../libgnutls-dane0_3.8.1-4+b1_amd64.deb ...
+Unpacking libgnutls-dane0:amd64 (3.8.1-4+b1) over (3.7.9-2) ...
+Preparing to unpack .../libgnutls30_3.8.1-4+b1_amd64.deb ...
+Unpacking libgnutls30:amd64 (3.8.1-4+b1) over (3.7.9-2) ...
+Setting up libgnutls30:amd64 (3.8.1-4+b1) ...
+(Reading database ... 398467 files and directories currently installed.)
+Preparing to unpack .../curl_8.3.0-3_amd64.deb ...
+Unpacking curl (8.3.0-3) over (7.88.1-11) ...
+Preparing to unpack .../libcurl4_8.3.0-3_amd64.deb ...
+Unpacking libcurl4:amd64 (8.3.0-3) over (7.88.1-11) ...
+Preparing to unpack .../gnutls-bin_3.8.1-4+b1_amd64.deb ...
+Unpacking gnutls-bin (3.8.1-4+b1) over (3.7.9-2) ...
+Preparing to unpack .../libcurl3-gnutls_8.3.0-3_amd64.deb ...
+Unpacking libcurl3-gnutls:amd64 (8.3.0-3) over (7.88.1-11) ...
+Setting up libgnutls-dane0:amd64 (3.8.1-4+b1) ...
+Setting up libcurl3-gnutls:amd64 (8.3.0-3) ...
+Setting up libcurl4:amd64 (8.3.0-3) ...
+Setting up curl (8.3.0-3) ...
+Setting up gnutls-bin (3.8.1-4+b1) ...
+Processing triggers for libc-bin (2.37-6) ...
+Processing triggers for man-db (2.11.2-3) ...
+Processing triggers for kali-menu (2023.4.3) ...
+
+┌──(root㉿kali)-[/home/kali/Desktop]
+└─# sudo -E apt install -y azcmagent_1.35.02478.1194_amd64.deb
+Reading package lists... Done
+Building dependency tree... Done
+Reading state information... Done
+E: Unable to locate package azcmagent_1.35.02478.1194_amd64.deb
+
+┌──(root㉿kali)-[/home/kali/Desktop]
+└─# ls                                                                       
+OnboardingScript.sh  azcmagent_1.35.02478.1194_amd64.deb
+
+┌──(root㉿kali)-[/home/kali/Desktop]
+└─# sudo -E apt install -y /home/kali/Desktop/azcmagent_1.35.02478.1194_amd64.deb
+Reading package lists... Done
+Building dependency tree... Done
+Reading state information... Done
+Note, selecting 'azcmagent' instead of '/home/kali/Desktop/azcmagent_1.35.02478.1194_amd64.deb'
+The following NEW packages will be installed:
+  azcmagent
+0 upgraded, 1 newly installed, 0 to remove and 942 not upgraded.
+Need to get 0 B/55.2 MB of archives.
+After this operation, 0 B of additional disk space will be used.
+Get:1 /home/kali/Desktop/azcmagent_1.35.02478.1194_amd64.deb azcmagent amd64 1.35.02478.1194 [55.2 MB]
+Selecting previously unselected package azcmagent.
+(Reading database ... 398466 files and directories currently installed.)
+Preparing to unpack .../azcmagent_1.35.02478.1194_amd64.deb ...
+Preinstall...install
+Creating himds group ...
+Creating himds account ...
+Unpacking azcmagent (1.35.02478.1194) ...
+Setting up azcmagent (1.35.02478.1194) ...
+Postinstall...configure
+Creating new /var/opt/azcmagent/agentconfig.json
+Creating new /etc/cron.d/azcmagent_autoupgrade
+Created symlink /etc/systemd/system/multi-user.target.wants/himdsd.service → /lib/systemd/system/himdsd.service.
+Checked guest config disabled: 0
+Checked ext service disabled: 0
+Getting status via systemd
+Arc GC service is not running.
+Configuring Arc GC service ...
+Found systemd service controller...for Arc GC Service
+Created symlink /etc/systemd/system/multi-user.target.wants/gcad.service → /lib/systemd/system/gcad.service.
+Service configured through systemd service controller. Gc Service
+Enabling gcad
+Getting status via systemd
+Arc GC service is not running.
+STARTING Arc GC
+Getting status via systemd
+EXT service is not running.
+Configuring EXT service ...
+Found systemd service controller...for Extension Service
+Created symlink /etc/systemd/system/multi-user.target.wants/extd.service → /lib/systemd/system/extd.service.
+Service configured through systemd service controller. Extension Service
+Enabling extd
+STARTING EXT
+N: Download is performed unsandboxed as root as file '/home/kali/Desktop/azcmagent_1.35.02478.1194_amd64.deb' couldn't be accessed by user '_apt'. - pkgAcquire::Run (13: Permission denied)
+
+┌──(root㉿kali)-[/home/kali/Desktop]
+└─# sudo chown -R _apt:root ^C
+
+┌──(root㉿kali)-[/home/kali/Desktop]
+└─# sude chown -R _apt:root ^[[200~/home/kali/Desktop/azcmagent_1.35.02478.1194_amd64.deb
+Command 'sude' not found, did you mean:
+  command 'sure' from deb python3-sure
+  command 'sudo' from deb sudo
+  command 'sudo' from deb sudo-ldap
+Try: apt install <deb name>
+
+┌──(root㉿kali)-[/home/kali/Desktop]
+└─# sudo chown -R _apt:root /home/kali/Desktop/azcmagent_1.35.02478.1194_amd64.deb
+
+┌──(root㉿kali)-[/home/kali/Desktop]
+└─# ^C                                                                       
+
+┌──(root㉿kali)-[/home/kali/Desktop]
+└─# sudo -E apt install -y /home/kali/Desktop/azcmagent_1.35.02478.1194_amd64.deb
+Reading package lists... Done
+Building dependency tree... Done
+Reading state information... Done
+Note, selecting 'azcmagent' instead of '/home/kali/Desktop/azcmagent_1.35.02478.1194_amd64.deb'
+azcmagent is already the newest version (1.35.02478.1194).
+0 upgraded, 0 newly installed, 0 to remove and 942 not upgraded.
+
+┌──(root㉿kali)-[/home/kali/Desktop]
+└─# azcmagent                                                                
+The Azcmagent (Azure Connected Machine Agent) tool is used to configure and troubleshoot the Azure Connected Machine Agent.
+
+The agent itself is a daemon process called 'himdsd' on Linux, and a Windows Service called 'himds' on Windows.
+
+In normal usage, 'azcmagent connect' is used to establish a connection between this machine and Azure, and 
+'azcmagent disconnect' if you decide you no longer want that connection. The other commands are for troubleshooting 
+or other special cases.
+
+Usage:
+  azcmagent [command]
+
+Commands that do not require elevated privileges:
+  license     Display the End-user license agreement file
+  show        Gets machine metadata and Agent status. This is primarily useful for troubleshooting.
+  version     Display the Hybrid Management Agent version
+
+Commands that require elevated privileges:
+  check       Runs connectivity checks
+  config      Change configuration settings for this machine
+  connect     Connects this machine to Azure
+  disconnect  Disconnects this machine from Azure
+  genkey      Generates public-private key pair
+  logs        Creates a .zip file containing the most recent relevant logs. This is primarily useful for troubleshooting.
+
+Additional Commands:
+  help        Help about any command
+
+Flags:
+      --config string   config file (default is $HOME/.azcmagent.yaml)
+  -h, --help            help for azcmagent
+  -j, --json            Output in JSON format
+      --log-stderr      Redirect error and verbose messages to stderr
+      --no-color        Disable color output to terminal
+  -v, --verbose         Increase logging verbosity to show all logs
+      --version         version for azcmagent
+
+Use "azcmagent [command] --help" for more information about a command.
+
+┌──(root㉿kali)-[/home/kali/Desktop]
+└─# azcmagent connect --resource-group "AzureArcDemo" --tenant-id "655d8472-2680-4a64-87bf-a23851b4cc8d" --location "SoutheastAsia" --subscription-id "352455fe-c849-4e07-b99d-8abf325cc3d4" --cloud "AzureCloud"
+INFO    Connecting machine to Azure... This might take a few minutes. 
+INFO    Testing connectivity to endpoints that are needed to connect to Azure... This might take a few minutes. 
+To sign in, use a web browser to open the page https://microsoft.com/devicelogin and enter the code I2RQHPG62 to authenticate.
+  20% [==>            ]
+  30% [===>           ]  
+  INFO    Creating resource in Azure...                 Correlation ID=19155de7-120b-4c21-878c-ee53c6e6da74 Resource ID=/subscriptions/352455fe-c849-4e07-b99d-8abf325cc3d4/resourceGroups/AzureArcDemo/providers/Microsoft.HybridCompute/machines/kali
+  60% [========>      ]  
+  80% [===========>   ]  
+ 100% [===============]  
+  INFO    Connected machine to Azure          
+INFO    Machine overview page: https://portal.azure.com/#@655d8472-2680-4a64-87bf-a23851b4cc8d/resource/subscriptions/352455fe-c849-4e07-b99d-8abf325cc3d4/resourceGroups/AzureArcDemo/providers/Microsoft.HybridCompute/machines/kali/overview 
+
+┌──(root㉿kali)-[/home/kali/Desktop]
+└─#   
